@@ -1,0 +1,75 @@
+ :root {
+    --square-size: 80px;
+    --light-color: #f0d9b5; /* Light Wood */
+    --dark-color: #b58863;  /* Dark Wood */
+    --selected-color: #ffe800;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: Arial, sans-serif;
+    background-color: #333;
+    color: #eee;
+}
+
+h1 {
+    margin-bottom: 20px;
+}
+
+#chessboard {
+    display: grid;
+    grid-template-columns: repeat(8, var(--square-size));
+    grid-template-rows: repeat(8, var(--square-size));
+    border: 3px solid #000;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+}
+
+.square {
+    width: var(--square-size);
+    height: var(--square-size);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 48px; /* Size for the Unicode chess pieces */
+    cursor: pointer;
+    transition: background-color 0.2s;
+    user-select: none;
+}
+
+/* Square Colors */
+.light {
+    background-color: var(--light-color);
+}
+
+.dark {
+    background-color: var(--dark-color);
+}
+
+/* Piece Colors */
+.white-piece {
+    color: #fff; /* White pieces */
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
+}
+
+.black-piece {
+    color: #000; /* Black pieces */
+    text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.7);
+}
+
+/* Selection State */
+.selected {
+    background-color: var(--selected-color) !important; /* Override light/dark */
+    border: 3px solid #ff0000;
+    box-sizing: border-box;
+}
+
+/* Hover effect */
+.square:hover {
+    filter: brightness(1.1);
+}
+
+.selected:hover {
+    filter: brightness(1); /* Keep selected color dominant */
+}
